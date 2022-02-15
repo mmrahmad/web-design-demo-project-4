@@ -1,0 +1,162 @@
+// Imports
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap');
+
+:root{
+    --primary-color: #094B72;
+    --primary-dark-color: #022940;
+    --text-color: #4F4F4F;
+    --text-gray: #8B8C8C;
+    --text-white: #fff;
+    --hero-bg: #F9F8F9;
+    --primary-font: 'Playfair Display', serif;
+    --secondary-font: 'Poppins', sans-serif;
+}
+
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--secondary-font);
+    font-size: 16px;
+    color: var(--text-color);
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--primary-font);
+}
+
+
+/** ================================
+ ** Common
+ ** ================================ */
+ .text-gray{color: var(--text-gray);}
+ .btn-primary{
+     background-color: var(--primary-color);
+     &:hover{
+         background-color: var(--primary-dark-color);
+     }
+}
+
+.navbar{
+    position: sticky;
+    background-color: var(--text-white);
+    .container{
+        & > *{
+            flex: 1;
+        }
+        .navbar-toggler{
+            flex: 0;
+        }
+        .navbar-brand{
+            &__logo{
+                display: flex;
+                align-items: center;
+                font-size: 1.25rem;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                margin: 0;
+                span{
+                    background-color: var(--primary-color);
+                    color: var(--text-white);
+                    text-align: center;
+                    line-height: 1;
+                    padding: .5rem;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    margin-right: 1rem;
+                }
+            }
+        }
+        .navbar-collapse{
+            &:is(.show){
+                flex-basis: 100%;
+                flex-grow: 1;
+                padding-top: 1.5rem;
+                .nav-link{
+                    padding: 1rem;
+                }
+            }
+            .nav-link{
+                padding: 0 1rem;
+                font-size: .8rem;
+                letter-spacing: 1.5px;
+                font-weight: 500;
+            }
+            &__search{
+                padding: .5rem;
+                border-radius: 3rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: all .4s ease-in-out;
+                border: 1px solid transparent;
+                &:hover{
+                    background-color: var(--text-white);
+                    border-color: var(--primary-color);
+                    input{
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                    button{
+                        color: var(--primary-color);
+                    }
+                }
+                input{
+                    background-color: none;
+                    border: none;
+                    outline: none;
+                    margin-right: .5rem;
+                    padding: 0 .5rem;
+                    visibility: hidden;
+                    opacity: 0;
+                    display: block;
+                    flex: 2;
+                    &:focus{
+                        & ~ button{
+                            color: var(--primary-color);
+                        }
+                    }
+                }
+                button{
+                    flex: 1;
+                    background: none;
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+    }
+}
+
+#hero-section{
+    padding: 5rem 0;
+    background-color: var(--hero-bg);
+    .container{
+        background-image: url('/img/hero_bg.png');
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: contain;
+        .intro{
+            & > * {
+                margin-bottom: 1rem;
+            }
+            h1{
+                font-size: 90px;
+                letter-spacing: 2%;
+                color: var(--primary-color);
+                font-weight: 700;
+            }
+            p{
+                font-size: 1.5rem;
+                letter-spacing: .5px;
+                max-width: 50%;
+            }
+            .btn{
+                padding: 1rem 1.5rem;
+            }
+        }
+    }
+}
